@@ -2,8 +2,10 @@ package com.gelonghui.util;
 
 import com.gelonghui.entity.BTree;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 二叉树的工具类
@@ -29,6 +31,20 @@ public class BTreeUtil {
      */
     public static void preOrder(BTree root) {
 
+        /*
+         * 双端队列：是指队列两端都可以进出队，但如果只从一边进出队，就实现了栈
+         * 栈在java中没有专门的数据结构，是用双端队列Deque来实现的
+         * 栈：push()、pop()方法
+         */
+        Deque<BTree> statck = new LinkedList<BTree>();
+
+        statck.push(root);
+
+        while (!statck.isEmpty()) {
+
+
+
+        }
     }
 
     /**
