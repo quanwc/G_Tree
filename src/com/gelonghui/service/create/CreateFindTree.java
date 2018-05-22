@@ -2,6 +2,7 @@ package com.gelonghui.service.create;
 
 import com.gelonghui.entity.BTree;
 import com.gelonghui.util.BTreeUtil;
+import javafx.scene.transform.Rotate;
 
 /**
  * 创建二叉查找树：
@@ -75,6 +76,10 @@ public class CreateFindTree {
 
         // 先序输出
         BTreeUtil.preOrderRecurse(root);
+        System.out.println();
+
+        // 后序（非递归）
+        BTreeUtil.postOrder(root);
 
 
 
