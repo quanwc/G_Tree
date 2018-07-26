@@ -30,7 +30,7 @@ public class VerifyPostOrder {
         Integer[] arrParam = new Integer[]{6, 2, 5, 8};
 
         //CreateFindTree obj = new CreateFindTree();
-        //obj.createFindTree(arr); // 对象调用静态的方法，为什么不可以？
+        //obj.createFindTree(arrData); // 对象调用静态的方法，为什么不可以？
 
         BTree root = CreateFindTree.createFindTree(arrData);
 

@@ -31,10 +31,33 @@ public class HasSubTreeTest {
         BTree rootA = new BTree(8, tree8, tree6);
 
 
-        // diaoyong
+        // 调用
         boolean result = HasSubTree.hasSubTree(rootA, rootB);
         System.out.println(result);
 
+    }
+
+    @Test
+    public void test2() {
+
+        // 构建树B
+        BTree rootALeft = new BTree(9, null, null);
+        BTree rootARight = new BTree(2, null, null);
+        BTree rootB = new BTree(8, rootALeft, rootARight);
+
+
+        // 构建树A
+        BTree tree2 = new BTree(2, null, null);
+        BTree tree9 = new BTree(9, null, null);
+        BTree tree8 = new BTree(8, tree9, tree2);
+        BTree tree6 = new BTree(6, null, null);
+        BTree rootA = new BTree(1, tree8, tree6);
+
+
+        // 调用
+        boolean result = HasSubTree.hasSubTree(rootA, rootB);
+        System.out.println(result);
 
     }
+
 }

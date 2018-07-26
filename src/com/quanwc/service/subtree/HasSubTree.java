@@ -16,31 +16,6 @@ import com.gelonghui.entity.BTree;
 public class HasSubTree {
 
     /**
-     * step1：在树A中查找与根节点的值一样的节点
-     * @param root1 树A的根节点
-     * @param root2 树B的根节点
-     * @return
-     */
-    public static boolean hasSubTree(BTree root1, BTree root2) {
-
-        Boolean result = false; // 返回值
-
-        if (root1 != null && root2 != null) {
-            if (root1.getData() == root2.getData()) {
-                result = DoesTree1HaveTree2(root1, root2); // 进行step2判断：判断树A是否和树B有一样的结构
-            }
-            if (!result) { // 如果树A、树B根节点值不相等，则判断左子树
-                hasSubTree(root1.getLeft(), root2);
-            }
-            if (!result) { // 如果树A、树B根节点值不相等，则判断右子树
-                hasSubTree(root1.getRight(), root2);
-            }
-        }
-
-        return  result;
-    }
-
-    /**
      * step2：判断树A是否和树B有一样的结构
      * @param root1 树A的根节点
      * @param root2 树B的根节点
@@ -64,8 +39,29 @@ public class HasSubTree {
         return DoesTree1HaveTree2(root1.getLeft(), root2.getLeft()) && DoesTree1HaveTree2(root1.getRight(), root2.getRight());
     }
 
+    /**
+     * step1：在树A中查找与根节点的值一样的节点
+     * @param root1 树A的根节点
+     * @param root2 树B的根节点
+     * @return
+     */
+    public static boolean hasSubTree(BTree root1, BTree root2) {
 
-    public static void main(String[] args) {
+        Boolean result = false; // 返回值
 
+        if (root1 != null && root2 != null) {
+            if (!result) { // 如果树A、树B根节点值不相等，则判断左子树
+                if (root1.getData() == root2.getData()) {
+                    result = DoesTree1HaveTree2(root1, root2); // 进行step2判断：判断树A是否和树B有一样的结构
+                }
+                hasSubTree(root1.getLeft(), root2);
+            }
+            if (!result) { // 如果树A、树B根节点值不相等，则判断右子树
+                hasSubTree(root1.getRight(), root2);
+            }
+        }
+
+        return  result;
     }
+
 }
